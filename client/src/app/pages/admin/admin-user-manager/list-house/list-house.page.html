@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <app-page-header [title]="'Maisons'"></app-page-header>
+    <app-admin-header></app-admin-header>
+  </ion-toolbar>
+</ion-header>
+
+<div class="container overflow-auto">
+  <div class="selectionButtons">
+    <input id="selectAll" type="checkbox"  (click)="onSelectAll()"/>
+    <label class="selectAll" for="selectAll">Tout séléctionner</label>
+    <button type="submit" class="btn btn-success" (click)="onAcceptSelection()">
+      Accepter la séléction
+    </button>
+    <button type="submit" class="btn btn-danger" (click)="onRefuseSelection()">
+      Refuser la séléction
+    </button>
+  </div>
+  <ion-list *ngFor="let house of houses; let i=index">
+    <div class="row itemBorder">
+      <div class="col-md-2 col-sm-2">
+        <input type="checkbox" [(ngModel)]="house.checked" />
+      </div>
+      <ion-item class="col-md-6 col-sm-6" (click)="onRouterLink('house-sheet/' + house.id_house)" >{{house.ref}}</ion-item>
+      <div class="col-md-2 col-sm-2">
+        <button type="submit" class="btn btn-success adminButton" (click)="house.confirm = onAccept(house.ref, i)">
+          <ion-icon class="accept" name="checkmark"></ion-icon>
+        </button>
+      </div>
+      <div class="col-md-2 col-sm-2">
+        <button type="submit" class="btn btn-danger adminButton" (click)="house.confirm = onRefuse(i)">
+          <ion-icon class="refuse" name="close"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </ion-list>
+</div>
+
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>

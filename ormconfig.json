@@ -1,0 +1,10 @@
+{
+  "type": "mariadb",
+  "host": "mariadb",
+  "port": 3306,
+  "username": "admin",
+  "password": "rowenta",
+  "database": "alsace",
+  "entities": ["./dist/server/orm/entity/**/*.js"],
+  "synchronize": true
+}

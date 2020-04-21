@@ -1,0 +1,104 @@
+<ion-header>
+  <app-page-header [title]="'Inscription'"></app-page-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col class="ion-align-self-center" sizeXs="12" sizeMd="5" sizeLg="3" >
+        <section class="d-flex flex-column justify-content-between h-100">
+
+         <ion-list lines="none">
+             <!-- ================================== header =======================================  -->
+             <div class="w-100 text-center">
+                 <img src="https://www.studio-ed.com/wp-content/uploads/2018/11/Logo-alsace.png" class="logo" alt="Carto-Patrimoine">
+                 <h1 id="title" class="h3 mb-3 font-weight-normal">Carto-Patrimoine</h1>
+             </div>
+
+            <!-- ================================== formular =======================================  -->
+            <form class="text-left" [formGroup]="registerForm" (submit)="onSend()">
+
+                <!-- E-MAIL -->
+                <label for="mail">Adresse mail</label>
+                <ion-item>
+                  <ion-input class="form-control"
+                             id="mail"
+                             formControlName="mail"
+                             type="mail"
+                             placeholder="Votre adresse e-mail"
+                             [ngClass]="{'is-invalid':  result.mail.dirty && result.mail.errors}"
+                  ></ion-input>
+                </ion-item>
+                <!-- error message -->
+                <div *ngIf="result.mail.dirty && result.mail.errors" class="alert-danger">
+                   <div *ngIf="result.mail.errors.email">L'adresse e-mail doit être valide</div>
+                   <div *ngIf=" result.mail.errors.required">Vous devez saisir une adresse e-mail</div>
+                </div>
+
+                <!-- PASSWORD -->
+                <label for="userPwd">Mot de passe</label>
+                    <ion-item>
+                       <ion-input class="form-control"
+                                  id="userPwd"
+                                  formControlName="userPwd"
+                                  type="password"
+                                  placeholder="Votre mot de passe"
+                                  [ngClass]="{'is-invalid':  result.userPwd.dirty && result.userPwd.errors}"
+                       ></ion-input>
+
+                    </ion-item>
+                    <!-- error message -->
+                    <div *ngIf="result.userPwd.dirty && result.userPwd.errors" class="alert-danger text-left">
+                        <div *ngIf="!result.userPwd.value.match('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*-])[A-Za-z\\d$@$!\-_%*?&].{7,}$')">Votre mot de passe doit contenir: </div>
+                        <div *ngIf="!result.userPwd.value.match('^(?=.*[a-z])')">- une lettre minuscule</div>
+                        <div *ngIf="!result.userPwd.value.match('^(?=.*[A-Z])')">- une lettre majuscule</div>
+                        <div *ngIf="!result.userPwd.value.match('^(?=.*[0-9])')">- un chiffre</div>
+                        <div *ngIf="!result.userPwd.value.match('^(?=.*[!@#\$%\^&\*-])')">- un caractère spécial</div>
+                        <div *ngIf="!result.userPwd.value.match('^(?=.{8,})')">- un minimum 8 caractères</div>
+                        <div *ngIf="result.userPwd.errors.maxlength">Votre mot de passe ne doit pas dépasser 80 caractères</div>
+                        <div *ngIf=" result.userPwd.errors.required">Vous devez saisir un mot de passe</div>
+                    </div>
+
+
+                <!-- PASSWORD CONFIRM -->
+                <label for="userPwdConfirm">Confirmation du mot de passe</label>
+                <ion-item>
+                  <ion-input class="form-control"
+                             id="userPwdConfirm"
+                             formControlName="userPwdConfirm"
+                             type="password"
+                             placeholder="Mot de passe"
+                  ></ion-input>
+                </ion-item>
+                <!-- error message -->
+                <div *ngIf="result.userPwdConfirm.dirty && result.userPwdConfirm.errors" class="alert-danger">
+                    <div *ngIf=" result.userPwdConfirm.errors.required">Vous devez confirmer votre mot de passe</div>
+                    <div *ngIf=" result.userPwdConfirm.errors.mustMatch">Les deux mot de passe doivent être identiques</div>
+                </div>
+
+                <!-- GENERAL CONDITIONS OF USE -->
+                <ion-item>
+                    <a id="gcuCheck" routerLink="gcu">Appuyez pour voir les conditions générales d'utilisation</a>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>J'accepte les conditions :</ion-label>
+                    <ion-checkbox formControlName="gcu" color="tertiary" value="oui" checked="false"></ion-checkbox>
+                </ion-item>
+
+                <!-- SUBMIT -->
+                <ion-button id="submitButton" type="submit" class="rounded" expand="full" color="primary" [disabled]="registerForm.invalid || submitted">Envoyer</ion-button>
+
+          </form>
+         </ion-list>
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>

@@ -1,0 +1,431 @@
+
+<ion-grid>
+  <ion-row color="primary" class="ion-justify-content-center">
+    <ion-col class="ion-align-self-center" sizeMd="6" sizeLg="10" sizeXs="12">
+
+      <h3>Formulaire d'ajout détaillé</h3>
+      <h3>Vous êtes page {{page}}</h3>
+
+      <form [formGroup]="form" (ngSubmit)="onSubmitDetailedForm()" >
+
+        <!-- Formulaire page 1 -->
+        <div *ngIf="page == 1">
+          <h2>I Aménagement de la parcelle</h2>
+          <!-- DELIMITATION -->
+
+          <ion-list>
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Type de délimitation</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Mur</ion-label>
+                <ion-radio slot="start"  value="wall"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Clôture</ion-label>
+                <ion-radio slot="start"  value="fencing" ></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Aucune</ion-label>
+                <ion-radio slot="start"  value="none"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- COUR -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Y'a t'il une cour</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Oui</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start"  value="no" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- FAÎTAGE -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Faîtage par rapport à la rue d'origine</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Parallèle</ion-label>
+                <ion-radio slot="start"  value="parallel"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Perpendiculaire</ion-label>
+                <ion-radio slot="start"  value="Perpendicular" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- USAGE D'ORIGINE -->
+
+            <ion-radio-group>
+
+              <ion-list-header>
+                <ion-label>Usage d'origine</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Habitation</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Agricole</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Artisanale</ion-label>
+                <ion-radio slot="start"  value="artisanal"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Batiment publique</ion-label>
+                <ion-radio slot="start"  value="public"></ion-radio>
+              </ion-item>
+
+              <ion-list-header>
+                <ion-label class="ion-padding">Autres usages</ion-label>
+              </ion-list-header>
+              <ion-item >
+                <ion-input type="text"></ion-input>
+              </ion-item>
+
+            </ion-radio-group>
+
+            <!-- BATIMENT VACANT ? -->
+
+            <ion-radio-group>
+
+              <ion-list-header>
+                <ion-label>Le batiment est-il vacant</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Oui</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Non</ion-label>
+                <ion-radio slot="start"  value="no" ></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+
+
+            <!-- INFOS COMPLÉMENTAIRES -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>y'a t'il un de ces éléments ?</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Four</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Puits</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Pigeonnier</ion-label>
+                <ion-radio slot="start"  value="artisanal"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Appentis</ion-label>
+                <ion-radio slot="start"  value="public"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- USAGE ACTUEL -->
+
+            <ion-list-header>
+              <ion-label class="ion-padding">Usage actuel</ion-label>
+            </ion-list-header>
+            <ion-item >
+              <ion-input type="text"></ion-input>
+            </ion-item>
+
+            <!-- NOTES COMPLÉMENTAIRES -->
+
+            <ion-list-header>
+              <ion-label class="ion-padding">Notes complémentaires</ion-label>
+            </ion-list-header>
+            <ion-item >
+              <ion-input  type="text"></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+        </div>
+
+
+        <!-- Formulaire page 2 -->
+
+        <div *ngIf="page == 2">
+          <h2>II Elements architecturaux -Toit</h2>
+
+          <!-- Versant -->
+
+          <ion-list>
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Nombres de Versant</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>A un seul versant</ion-label>
+                <ion-radio slot="start"  value="wall"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>A deux versant</ion-label>
+                <ion-radio slot="start"  value="fencing" ></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- croupe avant -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Croupe du pignon avant</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Sans croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Petite croupe</ion-label>
+                <ion-radio slot="start"  value="no" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Demi croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>À la mansart</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- croupe arrière -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Croupe du pignon arrière</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Sans croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Petite croupe</ion-label>
+                <ion-radio slot="start"  value="no" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Demi croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Croupe</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>À la mansart</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <!-- Pente -->
+
+            <ion-radio-group>
+
+              <ion-list-header>
+                <ion-label>Pente</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Forte >45°</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Faible <45°</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+
+            <!-- BATIMENT VACANT ? -->
+
+            <ion-radio-group>
+
+              <ion-list-header>
+                <ion-label>Couverture du bâtiment</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Ancienne</ion-label>
+                <ion-radio slot="start"  value="yes"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Récente</ion-label>
+                <ion-radio slot="start"  value="no" ></ion-radio>
+              </ion-item>
+
+            </ion-radio-group>
+
+            <!-- USAGE ACTUEL -->
+
+            <ion-list-header>
+              <ion-label class="ion-padding">État de la couverture</ion-label>
+            </ion-list-header>
+            <ion-item >
+              <ion-input type="text"></ion-input>
+            </ion-item>
+            <!-- INFOS TUILES -->
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Types de tuiles</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>A bout rond</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>A bout pointu</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>En ogive</ion-label>
+                <ion-radio slot="start"  value="artisanal"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>A bout carré</ion-label>
+                <ion-radio slot="start"  value="public"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <ion-radio-group>
+              <ion-list-header>
+                <ion-label>Pose des tuiles</ion-label>
+              </ion-list-header>
+              <ion-item>
+                <ion-label>Pose simple</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Pose double</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Couronnée</ion-label>
+                <ion-radio slot="start"  value="artisanal"></ion-radio>
+              </ion-item>
+            </ion-radio-group>
+
+            <ion-radio-group style="padding-right: 20px;">
+              Tuiles Mécaniques
+              <ion-checkbox slot="start"  value="public"></ion-checkbox>
+            </ion-radio-group>
+
+            <ion-radio-group>
+              <ion-label >Elle sont Vemisées</ion-label>
+              <ion-checkbox slot="start"  value="public" style="padding-left: 2px;"></ion-checkbox>
+            </ion-radio-group>
+
+
+            <ion-list-header>
+              <ion-label class="ion-padding">Couleur des tuiles:</ion-label>
+            </ion-list-header>
+            <ion-item >
+              <ion-input  type="text"></ion-input>
+            </ion-item>
+
+            <!--  SOUCHES DE CHEMINÉES -->
+
+            <ion-radio-group >
+              <ion-list-header>
+                <ion-label>Souche de cheminée</ion-label>
+              </ion-list-header>
+
+              <ion-item>
+                <ion-label>Ancienne</ion-label>
+                <ion-radio slot="start"  value="habitation"></ion-radio>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Récente</ion-label>
+                <ion-radio slot="start"  value="Agricultural" ></ion-radio>
+              </ion-item>
+
+
+
+              <ion-radio-group style="padding-right: 20px;">
+                Il y a un auvent
+                <ion-checkbox slot="start"  value="public" (click)="auventYes()"></ion-checkbox>
+              </ion-radio-group>
+              <div *ngIf="auvent == true">
+                <ion-list-header>
+                  <ion-label class="ion-padding">Le type de tuiles utilisé pour le auvent:</ion-label>
+                </ion-list-header>
+                <ion-item >
+                  <ion-input  type="text"></ion-input>
+                </ion-item>
+
+                <ion-radio-group style="padding-right: 20px;">
+                  <ion-label >La pose des tuiles est une pose simple</ion-label>
+                  <ion-checkbox slot="start"  value="public" style="padding-left: 2px;"></ion-checkbox>
+                </ion-radio-group>
+                <ion-radio-group>
+                  <ion-label >La pose des tuiles est une pose double</ion-label>
+                  <ion-checkbox slot="start"  value="public" style="padding-left: 2px;"></ion-checkbox>
+                </ion-radio-group>
+
+              </div>
+
+
+            </ion-radio-group>
+          </ion-list>
+        </div>
+
+
+
+        <!-- SUBMIT BUTTON -->
+
+
+        <div class="text-center">
+          <ion-button (click)="previousPage()" *ngIf="page > 1">Précédent</ion-button>
+          <ion-button size="large" type="submit" [disabled]="form.invalid" >Ajouter</ion-button>
+          <ion-button (click)="nextpage()">Suivant</ion-button>
+        </div>
+
+
+      </form>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>

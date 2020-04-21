@@ -1,0 +1,31 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
+import { IonicModule } from '@ionic/angular';
+import {PageContentModule} from "../../components/page-content/page-content.module";
+import {NotAuthGuard} from "../../guards/no-auth.guard";
+
+import { ConfirmMailPage } from './confirm-mail.page';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ConfirmMailPage,
+    canActivate: [NotAuthGuard]
+  }
+];
+
+@NgModule({
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        PageContentModule,
+        ReactiveFormsModule
+    ],
+  declarations: [ConfirmMailPage]
+})
+export class ConfirmMailPageModule {}

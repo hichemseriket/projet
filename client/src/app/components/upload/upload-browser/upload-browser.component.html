@@ -1,0 +1,24 @@
+<!-- INPUT FILE -->
+<div class="form-group border rounded input-group-top">
+
+    <label for="justifFormControlFile1" class="pl-3">Justificatif <small>(Format autorisés: .jpg .jpeg .png .pdf)</small></label>
+
+    <input type="file"
+           [multiple]="false"
+           name="photo"
+           class="form-control-file border-0 rounded-0"
+           id="justifFormControlFile1"
+           (change)="getFilesPreview($event)"
+           [accept]="allowedMimeType">
+
+    <div class="d-flex justify-content-center flex-wrap">
+        <div *ngFor="let file of previewFiles; let i = index;" class="divPreview position-relative m-3">
+            <div class="whiteFilter">
+                <button class="btn btn-secondary btn-sm btnClose" (click)="onRemovePreviewFile(i)">x</button>
+            </div>
+            <img [src]="file" class="w-100">
+        </div>
+    </div>
+
+    <ion-button (click)="onRequestSubmit()" [disabled]="processing || !validFile">Envoyer</ion-button>
+</div>

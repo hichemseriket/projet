@@ -1,0 +1,25 @@
+.divPrincipale{
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center !important;
+}
+.logo{
+  width: 72px;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (min-width: 500px) {
+  .tooltip-position {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 100%;
+    margin-left: 5px;
+  }
+}
+

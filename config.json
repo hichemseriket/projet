@@ -1,0 +1,29 @@
+{
+  "general": {
+    "name": "Carto-patrimoine",
+    "slogan": "",
+    "urlDomain": "http://localhost",
+    "urlContact": "anthony.schwartz@uha.fr",
+    "urlLogo": "https://ionicframework.com/blog/wp-content/uploads/2018/11/ionic-logo-white-300x300.png"
+  },
+  "token": {
+    "timeoutSessionMinute": 180
+  },
+  "uploadFile": {
+    "maxSize": 5,
+    "mediaPath": "./public/medias/"
+  },
+  "loggerManager": {
+    "logFilePatch": "./public/logs/appLog.log"
+  },
+  "user": {
+    "keyTempDelaySurvive":600000
+  },
+  "mailer": {
+    "service": "hotmail",
+    "auth": {
+      "user": "uha4.0@hotmail.com",
+      "password": "uha40kikoo"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.lastHouse {
+  height: 200px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#loader {
+  height: 0px;
+  transition: 1s ease;
+}
+#loader.active {
+  height: 50px;
+}
+

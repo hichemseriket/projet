@@ -1,0 +1,37 @@
+<ion-header class="userManagerHeader">
+  <ion-toolbar>
+    <app-page-header [title]="'Inactifs'"></app-page-header>
+    <app-admin-header></app-admin-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-lg-12">
+        <h3 class="inactiveInfos">Supprimer ou restaurer un utilisateur inactif</h3>
+      </div>
+      <div class="col-lg-12" *ngFor="let inactive of listeInactive; let i = index">
+        <ion-list *ngIf="inactive.activ != true">
+          <ion-item>
+            <div class="col-lg-7 userMail">{{inactive.mail}}</div>
+            <div class="col-lg-2">
+              <button type="submit" class="btn btn-success adminButton" (click)="inactive.confirm = onAccept(inactive.id, i)">
+                <ion-icon class="accept" name="checkmark"></ion-icon>
+              </button>
+            </div>
+            <div class="col-lg-2">
+              <button type="submit" class="btn btn-danger adminButton" (click)="inactive.confirm = onRefuse(inactive.id, i)">
+                <ion-icon class="refuse" name="close"></ion-icon>
+              </button>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>

@@ -1,0 +1,27 @@
+<div class="card shadow mb-3">
+  <div class="card-header d-flex justify-content-md-between flex-column flex-md-row">
+    <h3 class="">{{ User !== null ? User.Mail:userService.User?.Mail }}</h3>
+    <h5 class="text-muted">Le compte</h5>
+    <div *ngIf="userService.User.isAdministrator()">
+      <ion-select placeholder="Groupe" [(ngModel)]="choseRole" (ionChange)="onChangeGroup($event)">
+        <div *ngFor="let group of groups">
+          <ion-select-option [value]="group.id">{{group.name}}</ion-select-option>
+        </div>
+      </ion-select>
+    </div>
+  </div>
+
+  <div class="card-body row">
+    <div class="col-6 pr-1 pl-1">
+      <button class="btn btn-secondary w-100" (click)="onUpdatePassword()">Changer le mot de passe</button>
+    </div>
+    <div class="col-6 pr-1 pl-1">
+      <button class="btn btn-secondary w-100" (click)="onUpdateMail()">Changer l'adresse e-mail</button>
+    </div>
+  </div>
+
+  <div class="card-footer d-flex justify-content-md-between flex-column flex-md-row">
+    <small class="text-muted">Incrit depuis le: {{ User !== null ? User.RegisterDate:userService.User?.RegisterDate | date : 'dd MMMM yyyy' }}</small>
+    <small class="text-muted">{{ User !== null ? User.getRoleLabel():userService.User.getRoleLabel() }}</small>
+  </div>
+</div>

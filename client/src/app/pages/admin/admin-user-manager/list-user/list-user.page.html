@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <app-page-header [title]="'Utilisateurs'"></app-page-header>
+    <app-admin-header></app-admin-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <section>
+          <ion-list lines="none">
+            <!-- Select type of user-->
+            <ion-item>
+              <div class="col-lg-5 text-center">
+                <ion-label>Trier par groupe : </ion-label>
+              </div>
+              <div class="col-lg-5">
+                <ion-select class="selectUserType" placeholder="Cliquer ici" [(ngModel)]="choiceRole" (ionChange)="onRoleChoice($event)">
+                  <ion-select-option [selected]="true">Tous</ion-select-option>
+                  <div *ngFor="let group of groups">
+                    <ion-select-option [value]="group.id">{{group.name}}</ion-select-option>
+                  </div>
+                </ion-select>
+              </div>
+            </ion-item>
+          </ion-list>
+
+          <ion-list lines="none" *ngIf="choiceRole === 'Tous'">
+            <div *ngFor="let user of userList">
+              <ion-item (click)="onRouterLink('profil/' + user.id)" class="itemsBorder">
+                <ion-label class="userNames">{{user.mail}}</ion-label>
+                <ion-icon class="userIcon" name="arrow-forward"></ion-icon>
+              </ion-item>
+            </div>
+          </ion-list>
+
+          <ion-list lines="none">
+            <div *ngFor="let user of userList; let i = index">
+              <div *ngIf="user.groupId == choiceRole">
+                <ion-item (click)="onRouterLink('profil/' + user.id)" class="itemsBorder">
+                  <ion-label class="userNames">{{user.mail}}</ion-label>
+                  <ion-icon class="userIcon" name="arrow-forward"></ion-icon>
+                </ion-item>
+              </div>
+            </div>
+          </ion-list>
+
+        </section>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>
+

@@ -1,0 +1,42 @@
+<ion-header>
+    <app-page-header [title]="'Accueil'" [backButton]="false"></app-page-header>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row color="primary" class="justify-content-center">
+            <ion-col class="ion-align-self-center" sizeXs="12" sizeMd="10" sizeLg="6" >
+                <section class="d-flex flex-column justify-content-between h-100">
+
+                    <!-- logo -->
+                    <section class="d-flex flex-column justify-content-center flex-fill">
+
+                        <ion-img src="assets/img/logo.png" class="logo"></ion-img>
+                        <h1 class="text-center">
+                            Carto-Patrimoine
+                        </h1>
+
+                    </section>
+
+                    <!-- Search bar -->
+
+                    <app-searchComponent></app-searchComponent>
+
+                    <!-- map preview -->
+                    <section>
+                        <section id="map-preview" class="shadow">
+                            <app-map-comp [initViewGeolocate]="true" [zoom]="16"></app-map-comp>
+                        </section>
+                        <ion-button expand="full" disabled="true">Me proposer un itinéraire</ion-button>
+                    </section>
+
+
+                </section>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <app-page-footer></app-page-footer>
+</ion-footer>

@@ -1,0 +1,50 @@
+<ion-header>
+  <app-page-header [title]="'Accueil'" [backButton]="false"></app-page-header>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row color="primary" class="justify-content-center">
+      <ion-col class="ion-align-self-center" sizeXs="12" sizeMd="10" sizeLg="6" >
+        <section class="d-flex flex-column justify-content-between h-100">
+
+          <section class="">
+
+            <h3>Confirmation de votre nouvel e-mail</h3>
+            <p>Pour des raison de sécurité, merci de saisir votre mot de passe.</p>
+
+            <form [formGroup]="confirmMailForm" (submit)="onSubmit()">
+
+              <!-- input password -->
+              <div>
+                <label for="input-password1">Saisissez votre mot de passe:</label>
+                <input type="password" formControlName="password" class="form-control mb-2" id="input-password1" placeholder="Votre mot de passe" required>
+                <!-- error message -->
+                <div *ngIf="confirmMailForm.controls.password.invalid && confirmMailForm.controls.password.dirty"
+                     role="alert"
+                     aria-describedby="password-label"
+                     tabindex="0"
+                     class="error alert-warning m-1 pl-3 p-1 rounded">
+                  <small *ngIf="confirmMailForm.controls.password.errors.required">Vous devez saisir un mot de passe.</small>
+
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <button class="btn btn-secondary w-100 mt-3" type="submit" [disabled]="confirmMailForm.invalid || inProcess">Envoyer</button>
+
+            </form>
+
+
+
+          </section>
+
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>

@@ -1,0 +1,28 @@
+<ion-tab-bar slot="top">
+
+  <ion-tab-button *ngIf="userService.User.isAdministrator()" (click)="onRouterLink('list-user')" class="link" [ngClass]="{'active': url === 'ListUserPage'}">
+    <ion-label>Utilisateurs</ion-label>
+    <ion-icon name="contacts"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button *ngIf="userService.User.isAdministrator()" (click)="onRouterLink('register-request')" class="link" [ngClass]="{'active': url === 'AdminDashboardPage'}">
+    <ion-label>Demandes</ion-label>
+    <ion-icon name="person-add"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button (click)="onRouterLink('list-house')" class="link" [ngClass]="{'active': url === 'ListHousePage'}">
+    <ion-img src="assets/img/add_house.png" style=" width: 25px; height: 26px" onclick="this.src='assets/img/add_house_selected.png'" ></ion-img>
+    <ion-label>Maisons</ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button *ngIf="userService.User.isAdministrator()" (click)="onRouterLink('group-manager')" class="link" [ngClass]="{'active': url === 'GroupManagerPage'}">
+    <ion-label>Groupes</ion-label>
+    <ion-icon name="person"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button *ngIf="userService.User.isAdministrator()" (click)="onRouterLink('inactive-user')" class="link" [ngClass]="{active: url === 'InactiveUserPage'}">
+    <ion-label>Inactifs</ion-label>
+    <ion-icon name="close"></ion-icon>
+  </ion-tab-button>
+
+</ion-tab-bar>

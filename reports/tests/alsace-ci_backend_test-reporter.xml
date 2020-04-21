@@ -1,0 +1,16 @@
+<testExecutions version="1">
+<file path="server/services/database.int.ts">
+<testCase name="Test --&gt; Database: Databse should connect without an error" duration="10"/>
+</file>
+<file path="server/routes/middlewares/test.spec.ts">
+<testCase name="TestMidware Class: should return test response" duration="4"/>
+</file>
+<file path="server/services/secure/token.spec.ts">
+<testCase name="Test --&gt; Token Class: should return an encoded token" duration="3"/>
+<testCase name="Test --&gt; Token Class: check decoded token" duration="1"/>
+<testCase name="Test --&gt; Token Class: if 5 token are different" duration="0"/>
+<testCase name="Test --&gt; Token Class: if idUser &lt;= 0" duration="1"/>
+<testCase name="Test --&gt; Token Class: if token exist return undefined" duration="1"/>
+<testCase name="Test --&gt; Token Class: if token doesn&apos;t exist return a message error" duration="0"/>
+</file>
+</testExecutions>

@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-card-content class="d-flex justify-content-between bg-secondary" >
+
+      <ion-searchbar (ionChange)="getItems($event)"
+                     placeholder="Rechercher dans une ville"
+                     [value]="searchService.searchValue"
+                     class="w-100"
+                     (keyup.enter)="onRouterLink()"
+      ></ion-searchbar>
+
+      <ion-button type="submit" class="ion-align-self-center" (click)="onRouterLink()" slot="end" color="medium">
+        <ion-icon name="search" class="h1 text-white m-0"></ion-icon>
+      </ion-button>
+
+  </ion-card-content>
+</ion-card>

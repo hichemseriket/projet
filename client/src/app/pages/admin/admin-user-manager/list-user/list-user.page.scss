@@ -1,0 +1,28 @@
+.itemsBorder {
+  border-bottom: solid 2px #bebebe;
+}
+
+.userNames {
+  text-align: center;
+  font-size: 0.9em;
+  color: black;
+}
+
+.userNames {
+  cursor: pointer;
+}
+
+.userIcon {
+  padding-left: 40%;
+  width: 25px;
+  height: 25px;
+}
+
+.itemsBorder:hover {
+  .userIcon {
+    width: 40px;
+    height: 40px;
+    color: #0e88ac;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,33 @@
+.card-header-user {
+  background-color: #7282b6;
+  color: white;
+}
+
+.card-body-user {
+  background-color: rgba(114, 130, 182, 0.37);
+}
+
+.img-user {
+  width: 200px;
+}
+
+.btn-edit {
+  padding: 5px;
+  margin: -5px;
+}
+
+.btn-edit.active {
+  background-color: #6cc453;
+}
+
+.btn-edit-item {
+  display: none;
+}
+
+.btn-edit-item.active {
+  display: inline;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}

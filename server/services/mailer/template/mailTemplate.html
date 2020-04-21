@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{siteName}</title>
+</head>
+<body>
+<style>
+    /************ BASE ************/
+    * {
+        padding: 0;
+        margin : 0;
+    }
+
+    *:focus {
+        outline: 0;
+    }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        font-size: 13px;
+
+        background-color: #f2f2f2;
+        color: #707070;
+    }
+
+    tr, th {
+        text-align: center;
+    }
+
+    /************ HEADER ************/
+    .border-separator {
+        border-bottom: 1px solid dimgrey;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .img-logo {
+        width: 200px;
+        height: 200px;
+    }
+
+    .slogan {
+        color: #7e7e7e;
+    }
+
+    .title-link {
+        color: black;
+        text-decoration: none;
+    }
+
+    /************ BODY ************/
+    .column {
+        background-color: white;
+
+        border-radius: 4px;
+        padding: 20px;
+
+        box-shadow: 1px 1px 10px #ccc;
+        margin-bottom: 20px;
+    }
+
+    .contentMsg {
+        margin: 20px;
+    }
+
+    .contentMsg a {
+        background-color: #be0f31;
+
+        color: white;
+        text-decoration:none;
+
+        padding: 10px;
+        border-radius: 3px;
+    }
+    /************ FOOTER ************/
+    .message-auto {
+        font-size: 11px;
+    }
+</style>
+<br>
+<table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+
+    <tr>
+        <td class="column-350">
+            <a href="{siteUrl}" target="_blank">
+                <img src="{logoUrl}" alt="logo" class="img-logo">
+            </a>
+        </td>
+        <td class="column-350">
+            <a href="{siteUrl}" target="_blank" class="title-link">
+                <h1>{siteName}</h1>
+                <i class="slogan">{slogan}</i>
+            </a>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" class="border-separator"></td>
+    </tr>
+
+    <tr>
+        <td class="column" colspan="2">
+            <!-- ================================================================= -->
+            {content}
+            <!-- ================================================================= -->
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan="2" class="border-separator"></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <p class="message-auto" >
+                Ce message a été généré automatiquement. Merci de ne pas y répondre. Pour toute question ou problème veuillez contacter l'administrateur du site.(<a href="{siteUrl}" target="_blank">{siteUrl}</a>)
+            </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

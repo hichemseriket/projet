@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <app-page-header [title]="'Demandes'"></app-page-header>
+    <app-admin-header></app-admin-header>
+  </ion-toolbar>
+</ion-header>
+
+<div class="container overflow-auto">
+  <div class="selectionButtons">
+    <input id="selectAll" type="checkbox" [(ngModel)]="masterCheck" (click)="onSelectAll()" />
+    <label class="selectAll" for="selectAll">Tout séléctionner</label>
+    <button type="submit" class="btn btn-success" (click)="onAcceptSelection()">
+      Accepter la séléction
+    </button>
+    <button type="submit" class="btn btn-danger" (click)="onRefuseSelection()">
+      Refuser la séléction
+    </button>
+  </div>
+  <div *ngFor="let user of users; let i=index">
+    <div class="row itemBorder" *ngIf="user.active === true">
+      <div class="col-lg-1">
+        <input type="checkbox" [(ngModel)]="user.checked" />
+      </div>
+      <div class="col-lg-6">{{user.mail}}</div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-success adminButton" (click)="user.confirm = onAccept(user.mail, i)">
+          <ion-icon class="accept" name="checkmark"></ion-icon>
+        </button>
+      </div>
+      <div class="col-lg-2">
+        <button type="submit" class="btn btn-danger adminButton" (click)="user.confirm = onRefuse(i)">
+          <ion-icon class="refuse" name="close"></ion-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>
+
+

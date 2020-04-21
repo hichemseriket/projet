@@ -1,0 +1,81 @@
+<ion-header>
+  <app-page-header [title]="'Connection'"></app-page-header>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row color="primary" class="justify-content-center">
+      <ion-col class="ion-align-self-center" sizeXs="12" sizeMd="10" sizeLg="6" >
+        <section class="d-flex flex-column justify-content-between h-100">
+
+          <div class="divPrincipale">
+
+            <!-- ================================== header ============================================  -->
+            <img src="https://www.studio-ed.com/wp-content/uploads/2018/11/Logo-alsace.png" class="logo" alt="Carto-Patrimoine">
+
+            <h1 class="h3 mb-3 font-weight-normal">Se connecter</h1>
+
+            <!-- ================================== formulaire =======================================  -->
+            <form id=form [formGroup]="loginForm">
+              <div  class="form-group">
+
+                <!-- EMAIL -->
+                <div class="input-group position-relative">
+                  <input class="form-control mb-2"
+                         formControlName="userName"
+                         type="email"
+                         placeholder="Votre adresse e-mail"
+                         [ngClass]="{'is-invalid':  result.userName.dirty && result.userName.errors}"
+                         data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."
+                  >
+                  <!-- error message -->
+                  <div *ngIf="result.userName.dirty && result.userName.errors" class="invalid-tooltip tooltip-position">
+                    <div *ngIf="result.userName.errors.email">L'adresse e-mail doit être valide</div>
+                    <div *ngIf=" result.userName.errors.required">Adresse Mail requis</div>
+                  </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-group position-relative">
+                  <input class="form-control mb-2"
+                         formControlName="mdp"
+                         type="password"
+                         placeholder="Votre mot de passe"
+                         [ngClass]="{'is-invalid': result.mdp.dirty && result.mdp.errors}">
+                  <!-- error message -->
+                  <div *ngIf="result.mdp.dirty && result.mdp.errors" class="invalid-tooltip tooltip-position">
+                    <div *ngIf="result.mdp.errors.required">Vous devez renseignez un mot de passe</div>
+                    <div *ngIf="result.mdp.errors.maxlength">80 caractères maximum</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SUBMIT -->
+              <div>
+                <button class="btn btn-lg  btn-primary mb-3" (click)="onSend()" [disabled]="loginForm.invalid || submitted">Connexion</button>
+              </div>
+
+
+              <!-- ================================== other =======================================  -->
+              <div>
+                <button class="btn btn-link mt-2" (click)="mdpoublier()">
+                  <small>mot de passe oublié</small>
+                </button>
+              </div>
+              <div>
+                <a routerLink="/register" class="btn-link mt-2">
+                  <small>Pas encore inscrit ?</small>
+                </a>
+              </div>
+            </form>
+          </div>
+
+        </section>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+    <app-page-footer></app-page-footer>
+</ion-footer>

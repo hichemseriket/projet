@@ -1,0 +1,41 @@
+<div class="card shadow mb-3">
+    <div class="card-header card-header-user">
+        <h3>
+            Vos données personnelles
+            <fa-icon [icon]="faEdit"
+                     id="edit-data"
+                     class="float-right cursor-pointer btn-edit rounded cursor-pointer"
+                     [ngClass]="{'active': editMode}"
+                     (click)="onEditToggle()"
+                     title="Editer les données personnelles"
+            ></fa-icon>
+        </h3>
+    </div>
+    <div class="card-body card-body-user">
+        <div class="row">
+            <div>
+                <img src="assets/img/no-img-user.png" class="img-user shadow rounded mr-3 ml-2" alt="no-image">
+            </div>
+            <div>
+                <h3>
+                    <fa-icon [icon]="faPencilAlt"
+                             class="cursor-pointer btn-edit-item cursor-pointer"
+                             [ngClass]="{'active': editMode}"
+                             title="editer"
+                             (click)="onEditItem('Name')"
+                    ></fa-icon>
+                    {{ User !== null ? User.Name:userService.User?.Name | uppercase }}
+                </h3>
+                <h3>
+                    <fa-icon [icon]="faPencilAlt"
+                             class="cursor-pointer btn-edit-item cursor-pointer"
+                             [ngClass]="{'active': editMode}"
+                             title="editer"
+                             (click)="onEditItem('FirstName')"
+                    ></fa-icon>
+                    {{ User !== null ? User.FirstName:userService.User?.FirstName | titlecase }}
+                </h3>
+            </div>
+        </div>
+    </div>
+</div>

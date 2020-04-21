@@ -1,0 +1,71 @@
+version: '3.1'
+
+services:
+
+  osrm-backend:
+    container_name: alsace_osrm-backend-jenkins
+    ports:
+      - ${OSRM_PORT}:5000
+    volumes:
+      - osrm:/data
+    build:
+      context: ./docker/osrm/
+      dockerfile: Dockerfile
+
+  mariadb:
+    container_name: alsace_mariadb-jenkins
+    build:
+      context: .
+      dockerfile: docker/mariadb/Dockerfile
+    image: dalidos/alsace:mariadb
+    restart: always
+    volumes:
+      - mysql:/var/lib/mysql
+    expose:
+      - ${DB_PORT}
+
+#  phpmyadmin:
+#    depends_on:
+#      - mariadb
+#    image: phpmyadmin/phpmyadmin
+#    container_name: alsace_phpmyadmin
+#    restart: always
+#    ports:
+#      - ${PHPMYADMIN_PORT}:80
+#    environment:
+#      PMA_HOST: mariadb:3306
+#      MYSQL_ROOT_PASSWORD: root
+#    links:
+#      - mariadb
+
+  server:
+    depends_on:
+      - mariadb
+    container_name: alsace_server-jenkins
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/node/Dockerfile.jenkins
+    image: dalidos/alsace:server
+#    volumes:
+#      - .:/app
+    ports:
+      - ${PORT_EXPRESS}:${PORT_EXPRESS}
+
+  client:
+    container_name: alsace_client-jenkins
+    build:
+      context: ./client
+      dockerfile: ../docker/client/Dockerfile
+    image: dalidos/alsace:client
+#    volumes:
+#      - ./client:/app
+    ports:
+      - ${PORT_ANGULAR}:8100
+    depends_on:
+      - server
+
+volumes:
+    dbdata:
+    mysql: {}
+    osrm:

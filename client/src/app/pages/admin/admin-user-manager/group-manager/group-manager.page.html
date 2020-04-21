@@ -1,0 +1,109 @@
+<ion-header class="userManagerHeader">
+    <ion-toolbar>
+        <app-page-header [title]="'Gérer les groupes'"></app-page-header>
+        <app-admin-header></app-admin-header>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- New group form -->
+                <ion-button class="infosButton formMargin" color="light" (click)="onRevealForm()"><ion-icon class="infosButtonIcon" name="people"></ion-icon>Ajouter un groupe</ion-button>
+                <div class="col-lg-12" *ngIf="hideForm === false">
+                    <form [formGroup]="newGroupForm" (submit)="onSend()">
+                        <ion-label>Nom du groupe : </ion-label>
+                        <ion-input class="form-control"
+                                   id="name"
+                                   formControlName="name"
+                                   placeholder="Nom" type="text"></ion-input>
+                        <div class="col-lg-12">
+                            <ion-button class="infosButton formMargin rounded" type="submit" color="light">Envoyer</ion-button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- groups table -->
+                    <table class="table">
+                        <tr class="table-info">
+                            <th>Groupe</th>
+                            <th>Suggérer</th>
+                            <th>Valider</th>
+                            <th>Administrer</th>
+                            <th>Supprimer</th>
+                        </tr>
+                        *ngIf="userService.User.Validate"
+
+                        <tr *ngFor="let group of groups; let i = index">
+                            <td class="table-info">{{group.name | titlecase}}</td>
+                            <td [ngClass]="{'table-success': group.suggest,
+                                            'table-danger': !group.suggest}">
+                                <ion-checkbox *ngIf="group.id === 4" disabled="true" [checked]="group.suggest"></ion-checkbox>
+                                <ion-checkbox *ngIf="group.id != 4" [checked]="group.suggest" (ionChange)="onCheckboxSuggest(group.id, group.validate, group.name, group.suggest, group.administrate)"></ion-checkbox>
+                            </td>
+
+                            <td [ngClass]="{'table-success': group.validate,
+                                            'table-danger': !group.validate}">
+                                <ion-checkbox *ngIf="group.id === 4" disabled="true" [checked]="group.validate"></ion-checkbox>
+                                <ion-checkbox *ngIf="group.id != 4" [checked]="group.validate" (ionChange)="onCheckboxValidate(group.id, group.validate, group.name, group.suggest, group.administrate)"></ion-checkbox>
+                            </td>
+
+                            <td [ngClass]="{'table-success': group.administrate,
+                                            'table-danger': !group.administrate}">
+                                <ion-checkbox *ngIf="group.id === 4" disabled="true" [checked]="group.administrate"></ion-checkbox>
+                                <ion-checkbox *ngIf="group.id != 4" [checked]="group.administrate" (ionChange)="onCheckboxAdministrate(group.id, group.validate, group.name, group.suggest, group.administrate)"></ion-checkbox>
+                            </td>
+                            <td class="deleteGroup">
+                                <div *ngIf="group.id <= 4">
+                                    <ion-icon class="cantDeleteIcon" name="remove-circle"></ion-icon>
+                                </div>
+                                <div *ngIf="group.id > 4">
+                                    <ion-icon class="deleteIcon" name="trash" (click)="onDeleteGroup(group.id, group.validate, group.name, group.suggest, group.administrate)"></ion-icon>
+                                </div>
+                            </td>
+                            <td class="deleteGroup">
+                                <div *ngIf="group.id <= 3">
+                                    <ion-icon class="cantDeleteIcon" name="remove-circle"></ion-icon>
+                                </div>
+                                <div *ngIf="group.id > 3">
+                                    <ion-icon class="deleteIcon" name="trash" (click)="onDeleteGroup(group.id, group.validate, group.name, group.suggest)"></ion-icon>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+            </div>
+
+            <!-- Suggest and validate infos -->
+            <div class="col-lg-12">
+                <ion-button class="infosButton" color="light" (click)="onSuggestCallback()">
+                    <ion-icon name="add-circle-outline" class="infosButtonIcon"></ion-icon>
+                    Pour "suggérer" il pourra</ion-button>
+
+                <ion-button class="infosButton" color="light" (click)="onValidateCallback()">
+                    <ion-icon name="add-circle-outline" class="infosButtonIcon"></ion-icon>
+                    Pour "valider" il pourra</ion-button>
+                <div *ngIf="suggestNeeded === true">
+                    <ol class="text-left">
+                        <li>Proposer d'ajouter une maison</li>
+                        <li>Proposer des modifications sur une maison existante</li>
+                        <li>Proposer d'ajouter des photos ou documents</li>
+                    </ol>
+                </div>
+
+                <div *ngIf="validateNeeded === true">
+                    <ol class="text-left">
+                        <li>Valider ou refuser une suggestion d'ajout de maison</li>
+                        <li>Valider ou refuser une suggestion de modification sur une maison existante</li>
+                        <li>Valider ou refuser de nouvelles photos ou documents</li>
+                        <li>Signaler un utilisateur comme indésirable</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+<ion-footer>
+    <app-page-footer></app-page-footer>
+</ion-footer>

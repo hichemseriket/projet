@@ -1,0 +1,19 @@
+.divPreview {
+}
+.divPreview:hover .whiteFilter{
+  opacity: 0.8;
+}
+.whiteFilter {
+  background-color: rgba(255,255,255,1);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  transition: 0.3s ease;
+}
+.btnClose {
+  position: absolute;
+  margin: 10px;
+  top: 0;
+}

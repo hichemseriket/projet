@@ -1,0 +1,27 @@
+<ion-header>
+  <app-page-header [title]="'Conditions'"></app-page-header>
+</ion-header>
+
+<ion-content>
+  <router-outlet></router-outlet>
+    <ion-grid>
+      <ion-row class="ion-justify-content-center">
+        <ion-col class="ion-align-self-center" sizeXs="12" sizeMd="5" sizeLg="3" >
+          <section class="d-flex flex-column justify-content-between h-100">
+            <ion-item>
+              <p id="gcuInformations">En cochant "j'accepte les conditions" <ion-icon color="success" name="checkmark"></ion-icon>,
+               vous permettez aux administrateurs d'utiliser vos trajets pour améliorer le fonctionnement de l'application.
+               Le tout reste parfaitement anonyme, les autres utilisateurs <span id="confidentiality">n'auront pas accès à vos informations sans votre accord </span></p>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="arrow-round-back"></ion-icon><a id="backToForm" routerLink="../">Revenir au formulaire</a>
+            </ion-item>
+          </section>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <app-page-footer></app-page-footer>
+</ion-footer>

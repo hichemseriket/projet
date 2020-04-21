@@ -1,0 +1,14 @@
+FROM node:12
+
+WORKDIR /app
+
+#COPY package.json .
+
+#RUN npm i
+
+COPY . .
+
+#RUN npm run build && pwd && ls -la
+#RUN pwd && ls -la
+
+CMD npm i && npm run start

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/house-card/detail-house/detail-house.component.spec.ts">
+        <testCase name="DetailHouseComponent should create" duration="110"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/app.component.spec.ts">
+        <testCase name="AppComponent should create the app" duration="84"/>
+        <testCase name="AppComponent admin state must be false in initialize" duration="48"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/upload/upload-modile/upload-modile.component.spec.ts">
+        <testCase name="UploadModileComponent should create" duration="409"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/search/search.page.spec.ts">
+        <testCase name="SearchPage should create" duration="103"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/new-house/new-house.page.spec.ts">
+        <testCase name="NewHousePage should create" duration="441"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/house-card/galery/galery.component.spec.ts">
+        <testCase name="GaleryComponent should create" duration="52"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/house-card/maping-house/maping-house.component.spec.ts">
+        <testCase name="MapingHouseComponent should create" duration="64"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/upload/upload.page.spec.ts">
+        <testCase name="UploadPage should create" duration="519"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/map/map.page.spec.ts">
+        <testCase name="MapPage should create" duration="32"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/home/home.page.spec.ts">
+        <testCase name="HomePage should create" duration="63"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/house-card/house-card.page.spec.ts">
+        <testCase name="HouseCardPage should create" duration="66"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/association/association.page.spec.ts">
+        <testCase name="AssociationPage should create" duration="42"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/map/map.component.spec.ts">
+        <testCase name="MapComponent should create" duration="33"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/search/search.service.spec.ts">
+        <testCase name="SearchService should be created" duration="14"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/application/application.page.spec.ts">
+        <testCase name="ApplicationPage should create" duration="64"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/upload/upload-browser/upload-browser.component.spec.ts">
+        <testCase name="UploadBrowserComponent should create" duration="43"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/contact/contact.page.spec.ts">
+        <testCase name="ContactPage should create" duration="36"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/page-content/page-footer/page-footer.component.spec.ts">
+        <testCase name="PageFooterComponent should create" duration="42"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/view-media/view-media.component.spec.ts">
+        <testCase name="ViewMediaComponent should create" duration="29"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/language/language.service.spec.ts">
+        <testCase name="LanguageService should be created" duration="15"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/page-content/page-header/page-header.component.spec.ts">
+        <testCase name="PageHeaderComponent should create" duration="34"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/components/search/search-bar.component.spec.ts">
+        <testCase name="SearchComponent should create" duration="2"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/upload/upload.service.spec.ts">
+        <testCase name="UploadService should be created" duration="13"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/api/api.service.spec.ts">
+        <testCase name="ApiService should be created" duration="16"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/register/gcu/gcu.page.spec.ts">
+        <testCase name="GcuPage should create" duration="84"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/pages/login-page/login-page.component.spec.ts">
+        <testCase name="LoginPageComponent should create" duration="5"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/map/map.service.spec.ts">
+        <testCase name="MapService should be created" duration="15"/>
+    </file>
+    <file path="/home/dalidos/Bureau/alsace/client/src/app/services/error-manager/error-manager.service.spec.ts">
+        <testCase name="ErrorManagerService should be created" duration="12"/>
+    </file>
+</testExecutions>
