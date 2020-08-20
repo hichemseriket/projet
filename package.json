@@ -7,7 +7,7 @@
     "@types/cors": "^2.8.6",
     "@types/mysql": "^2.15.7",
     "@types/socket.io": "^2.1.4",
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "buffer-image-size": "^0.6.4",
     "colors": "^1.4.0",
