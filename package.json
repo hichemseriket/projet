@@ -21,7 +21,7 @@
     "express-list-endpoints": "^4.0.1",
     "foreach-end": "^1.1.0",
     "foreachthen": "^1.3.0",
-    "jsonwebtoken": "^8.5.0",
+    "jsonwebtoken": "^9.0.0",
     "log4js": "^4.5.1",
     "mariadb": "^2.1.3",
     "mocha-sonarqube-reporter": "^1.0.1",
